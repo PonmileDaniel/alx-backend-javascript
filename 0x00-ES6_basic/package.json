@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "lint": "./node_modules/.bin/eslint",
     "dev": "npx babel-node"
   },
   "devDependencies": {
