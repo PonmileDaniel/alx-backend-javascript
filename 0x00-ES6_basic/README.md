@@ -1,4 +1,4 @@
-ES6 Basics
+ES6-Basic
 
-How to install Nodejs
-This is the first task for backend specialization
+Task-0
+	we would be looking at where to use const and let and see the difference
