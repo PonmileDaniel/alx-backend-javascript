@@ -1,9 +1,10 @@
 const Utils = {
     calculateNumber(type, a, b) {
+        const roundedA = Math.round(a);
+        const roundedB = Math.round(b);
       if (type === 'SUM') {
-        return Math.round(a) + Math.round(b);
+        return roundedA + roundedB;
       }
-      throw new Error('Invalid type');
     },
   };
   
