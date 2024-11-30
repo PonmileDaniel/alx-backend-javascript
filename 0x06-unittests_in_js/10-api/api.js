@@ -1,42 +1,33 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const app = express();
-const PORT = 7865;
 
-// Middleware for parsing JSON request body
-app.use(bodyParser.json());
+const port = 7865;
 
-// Root route
 app.get('/', (req, res) => {
   res.send('Welcome to the payment system');
 });
 
-// Cart route with regex validation for :id
 app.get('/cart/:id(\\d+)', (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
   res.send(`Payment methods for cart ${id}`);
 });
 
-// New endpoint: GET /available_payments
 app.get('/available_payments', (req, res) => {
   res.json({
     payment_methods: {
       credit_cards: true,
-      paypal: false,
-    },
+      paypal: false
+    }
   });
 });
 
-// New endpoint: POST /login
-app.post('/login', (req, res) => {
-  const { userName } = req.body;
+app.post('/login', express.json(), (req, res) => {
+  const userName = req.body.userName;
   res.send(`Welcome ${userName}`);
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`API available on localhost port ${PORT}`);
+app.listen(port, () => {
+  console.log(`API available on localhost port ${port}`);
 });
 
-module.exports = app;
+module.exports = app
